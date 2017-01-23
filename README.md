@@ -1,6 +1,6 @@
 # appium-python-example
 
-To be able to run this test you need to have <a href="https://www.python.org/downloads/" target="blank">Python</a> installed on your computer. You need also to install Selenium and <a href="https://pypi.python.org/pypi/selenium" target="blank">Selenium</a> and <a href="https://github.com/appium/python-client" target="blank">Appium-Python-Client</a>:
+To be able to run this test you need to have <a href="https://www.python.org/downloads/" target="blank">Python</a> installed on your computer. You need also to install <a href="https://pypi.python.org/pypi/selenium" target="blank">Selenium</a> and <a href="https://github.com/appium/python-client" target="blank">Appium-Python-Client</a>:
 
 
 `pip3 install -U selenium`
