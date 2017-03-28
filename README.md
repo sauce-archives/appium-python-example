@@ -7,7 +7,7 @@ To be able to run this test you need to have <a href="https://www.python.org/dow
 `pip3 install Appium-Python-Client`
 
 
-####Run the test
+#### Run the test
 The easiest way to run the tests is to open your python test file with IDLE - Python and click on the *Run* tab from the top menu then, select the *Run Module* from the list. At the end, you will be able to see the test result on IDLE directly as soon as the test is done. 
 
 For more information visit the Basic Python Setup [guide](https://help.testobject.com/docs/tools/appium/setups/basic-setup/python-unittest/) on TestObject.
