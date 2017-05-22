@@ -1,14 +1,15 @@
 import unittest
+import os
 from appium import webdriver
 
 class TestClass(unittest.TestCase):
 
     def setUp(self):
         desired_caps = {}
-        desired_caps['testobject_api_key'] = 'Your TestObject API key here'
-        desired_caps['testobject_device'] = 'LG_Nexus_4_E960_real'
-        desired_caps['testobject_appium_version'] = '1.5.2-patched-chromedriver'
-        testobject_endpoint = 'http://appium.testobject.com:80/api/appium/wd/hub'
+        desired_caps['testobject_api_key'] = os.environ['TESTOBJECT_API_KEY']
+        desired_caps['testobject_device'] = os.environ['TESTOBJECT_DEVICE_ID']
+        desired_caps['testobject_appium_version'] = os.getenv('APPIUM_VERSION', '1.6.4')
+        testobject_endpoint = os.getenv('APPIUM_ENDPOINT', 'http://appium.testobject.com/api/appium/wd/hub')
         self.driver = webdriver.Remote(testobject_endpoint, desired_caps)
 
 
