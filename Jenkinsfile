@@ -2,7 +2,7 @@
 
 pipeline {
     agent {
-        docker "python"
+        docker "python:3.6.1"
     }
 
     stages {
