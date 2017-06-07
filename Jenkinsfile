@@ -11,7 +11,12 @@ pipeline {
         	steps {
             	sh 'pip install -U selenium'
             	sh 'pip install Appium-Python-Client'
-            	sh 'python appium_basic_test.py'
+            }
+        }
+
+        stage('run tests') {
+            steps {
+                sh 'python appium_basic_test.py'
             }
         }
     }
