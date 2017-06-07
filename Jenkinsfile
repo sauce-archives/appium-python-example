@@ -8,7 +8,6 @@ pipeline {
     stages {
 
         stage('install dep') {
-        pip install -U selenium && pip install Appium-Python-Client && python appium_basic_test.py
         	steps {
             	sh 'pip install -U selenium'
             	sh 'pip install Appium-Python-Client'
