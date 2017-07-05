@@ -14,7 +14,20 @@ pipeline {
             }
         }
 
-        stage('run tests') {
+        stage("staging test") {
+            when {
+                expression { params.APPIUM_ENDPOINT == 'http://appium.staging.testobject.org/wd/hub' }
+            }
+            steps {
+                lock (resource: params.TESTOBJECT_DEVICE) {
+                    sh 'python appium_basic_test.py'
+                }
+            }
+        }
+        stage("test") {
+            when {
+                 expression { params.APPIUM_ENDPOINT != 'http://appium.staging.testobject.org/wd/hub' }
+            }
             steps {
                 sh 'python appium_basic_test.py'
             }
