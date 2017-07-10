@@ -7,11 +7,9 @@ def runTest() {
         }
         stage("test") {
             docker.image("python:3.6.1").inside {
-                try {
-                    sh 'pip install -U selenium'
-                	sh 'pip install Appium-Python-Client'
-                    sh 'python appium_basic_test.py'
-                }
+                sh 'pip install -U selenium'
+                sh 'pip install Appium-Python-Client'
+                sh 'python appium_basic_test.py'
             }
         }
     }
