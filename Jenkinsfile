@@ -10,9 +10,7 @@ def runTest() {
                 try {
                     sh 'pip install -U selenium'
                 	sh 'pip install Appium-Python-Client'
-                    sh "mvn clean test"
-                } finally {
-                    junit "**/test-results/*.xml"
+                    sh 'python appium_basic_test.py'
                 }
             }
         }
