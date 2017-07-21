@@ -16,7 +16,7 @@ def runTest() {
 }
 
 if (env.APPIUM_ENDPOINT.contains("staging.testobject.org")) {
-    lock (resource: params.TESTOBJECT_DEVICE) {
+    lock (resource: env.TESTOBJECT_DEVICE) {
         runTest()
     }
 } else {
