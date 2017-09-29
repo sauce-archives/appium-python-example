@@ -12,6 +12,8 @@ class TestClass(unittest.TestCase):
 
         if os.getenv('TESTOBJECT_DEVICE'):
             desired_caps['testobject_device'] = os.getenv('TESTOBJECT_DEVICE')
+        if os.getenv('PLATFORM_VERSION'):
+            desired_caps['platformVersion'] = os.getenv('PLATFORM_VERSION')
         if os.getenv('DEVICE_NAME'):
             desired_caps['deviceName'] = os.getenv('DEVICE_NAME')
         if os.getenv('TESTOBJECT_SESSION_CREATION_RETRY'):
