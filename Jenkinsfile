@@ -33,7 +33,7 @@ def runTest() {
 }
 
 def reportResultsToInfluxDb() {
-    if (env.REPORT_RESULTS ?: true) {
+    if (env.REPORT_RESULTS) {
         node {
             def influxDb
             if (env.INFLUX_DB) {
@@ -43,12 +43,16 @@ def reportResultsToInfluxDb() {
             }
             def result = 0
             if (currentBuild.result == null) {
-                // this means: there is no failures
                 currentBuild.result = "SUCCESS"
                 result = 1
             }
+
+            def customData = ['result': result]
+            if (isProduction()) {
+                customData = env.PART_OF_SLA ? ['result': result, 'sla': true] : ['result': result, 'sla': false]
+            }
             step([$class       : 'InfluxDbPublisher',
-                  customData   : ['result': result],
+                  customData   : customData,
                   customDataMap: null,
                   customPrefix : null,
                   target       : influxDb])
