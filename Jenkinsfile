@@ -33,7 +33,7 @@ def runTest() {
 }
 
 def reportResultsToInfluxDb() {
-    if (env.REPORT_RESULTS) {
+    if (env.REPORT_RESULTS.is("true")) {
         node {
             def influxDb
             if (env.INFLUX_DB) {
@@ -49,7 +49,7 @@ def reportResultsToInfluxDb() {
 
             def customData = ['result': result]
             if (isProduction()) {
-                customData = env.PART_OF_SLA ? ['result': result, 'sla': true] : ['result': result, 'sla': false]
+                customData = env.PART_OF_SLA.is("true") ? ['result': result, 'sla': true] : ['result': result, 'sla': false]
             }
             step([$class       : 'InfluxDbPublisher',
                   customData   : customData,
