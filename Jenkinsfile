@@ -46,11 +46,7 @@ def reportResultsToInfluxDb() {
                 currentBuild.result = "SUCCESS"
                 result = 1
             }
-
-            def customData = ['result': result]
-            if (isProduction()) {
-                customData = env.PART_OF_SLA.is("true") ? ['result': result, 'sla': true] : ['result': result, 'sla': false]
-            }
+            def customData = env.PART_OF_SLA.is("true") ? ['result': result, 'sla': true] : ['result': result, 'sla': false]
             step([$class       : 'InfluxDbPublisher',
                   customData   : customData,
                   customDataMap: null,
