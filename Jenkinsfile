@@ -47,6 +47,16 @@ def reportResultsToInfluxDb() {
                 result = 1
             }
             def customData = env.PART_OF_SLA.is("true") ? ['result': result, 'sla': true] : ['result': result, 'sla': false]
+            if (env.CATEGORY != null) {
+                customData.category = env.CATEGORY.toLowerCase()
+            } else if (env.JOB_BASE_NAME.contains("ios")) {
+                customData.category = "ios"
+            } else if (env.JOB_BASE_NAME.contains("android")) {
+                customData.category = "android"
+            } else {
+                customData.category = "unknown"
+            }
+
             step([$class       : 'InfluxDbPublisher',
                   customData   : customData,
                   customDataMap: null,
