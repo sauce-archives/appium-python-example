@@ -26,10 +26,7 @@ class TestClass(unittest.TestCase):
 
 
     def test_open_testobject_website(self):
-        self.driver.get("https://testobject.com/")
-        if not "TestObject" in self.driver.title:
-            raise Exception("Unable to load TestObject")
-
+        self.driver.get("https://google.com/")
 
     def tearDown(self):
         self.driver.quit()
