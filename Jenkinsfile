@@ -1,4 +1,5 @@
 #!groovy
+@Library('TestRunner') _
 
 // For more information about TestRunner please visit https://github.com/saucelabs/pipeline-test-runner
 
