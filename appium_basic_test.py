@@ -7,11 +7,12 @@ class TestClass(unittest.TestCase):
     def setUp(self):
         desired_caps = {}
         desired_caps['testobject_api_key'] = os.environ['TESTOBJECT_API_KEY']
-        desired_caps['testobject_appium_version'] = os.getenv('APPIUM_VERSION', '1.6.4')
         desired_caps['platformName'] = os.getenv('PLATFORM_NAME', 'ANDROID')
 
         if os.getenv('TESTOBJECT_DEVICE'):
             desired_caps['testobject_device'] = os.getenv('TESTOBJECT_DEVICE')
+        if os.getenv('APPIUM_VERSION'):
+            desired_caps['testobject_appium_version'] = os.getenv('APPIUM_VERSION')
         if os.getenv('PLATFORM_VERSION'):
             desired_caps['platformVersion'] = os.getenv('PLATFORM_VERSION')
         if os.getenv('DEVICE_NAME'):
