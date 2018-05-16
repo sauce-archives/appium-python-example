@@ -10,7 +10,7 @@ def test = {
 }
 
 TestRunner {
-    dockerImage = "python:3.6.1"
+    dockerImage = "python:latest"
     collectJunitReport = false
     steps = test
 }
