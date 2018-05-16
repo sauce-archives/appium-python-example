@@ -22,9 +22,9 @@ class TestClass(unittest.TestCase):
         if os.getenv('TESTOBJECT_SESSION_CREATION_TIMEOUT'):
             desired_caps['TESTOBJECT_SESSION_CREATION_TIMEOUT'] = os.getenv('TESTOBJECT_SESSION_CREATION_TIMEOUT')
 
-        testobject_endpoint = os.getenv('APPIUM_URL', 'http://appium.testobject.com/api/appium/wd/hub')
+        testobject_endpoint = os.getenv('APPIUM_URL', 'http://us1.appium.testobject.com/wd/hub')
         self.driver = webdriver.Remote(testobject_endpoint, desired_caps)
-
+        print(self.driver.desired_capabilities)
 
     def test_open_testobject_website(self):
         self.driver.get("https://google.com/")
@@ -34,4 +34,3 @@ class TestClass(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
