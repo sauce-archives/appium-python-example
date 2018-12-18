@@ -5,7 +5,7 @@
 
 def test = {
     sh 'pip install -U selenium'
-    sh 'pip install Appium-Python-Client'
+    sh 'pip install Appium-Python-Client==0.31'
     sh 'python appium_basic_test.py'
 }
 
